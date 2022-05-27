@@ -1,0 +1,433 @@
+
+/* CSS adaptado de https://www.codeleaks.io/tic-tac-toe-game-using-html-css-and-javascript/ */
+
+body {
+    font-family: "Segoe UI", "Times new roman";
+}
+
+section {
+    margin: 0 auto;
+}
+
+#tablero {
+   display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 350px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#tablero > li {
+    list-style: none;
+    float: left;
+    overflow: hidden;
+    text-decoration:none;
+    width: 150px;
+    cursor: pointer;
+    background: #292b2c;
+    height: 150px;
+    box-shadow: 2px 2px 2px 2px black;
+    border: 2px solid black; 
+    cursor: pointer;
+    text-align: center;
+    padding-top: 20px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+#tablero > li:hover {
+    background: #0275d8;
+}
+
+/* Botón Zumbido extraído de: https://codepen.io/techshiva/pen/JVbKLM */
+.link{
+	padding: 15px 30px;
+	margin: 10px;
+	display: inline-block;
+	color: #000;
+	background: #ffce54;
+  text-decoration: none;
+}
+
+.link:hover{
+	text-decoration: none;
+	color: #000;
+}
+
+/*====================*/
+/* BUZZ OUT
+/*====================*/
+
+@-webkit-keyframes buzz-out-on-hover {
+  10% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  20% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  30% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  40% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  50% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  60% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  70% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  80% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  90% {
+    -webkit-transform: translateX(1px) rotate(0);
+    transform: translateX(1px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateX(-1px) rotate(0);
+    transform: translateX(-1px) rotate(0);
+  }
+}
+@keyframes buzz-out-on-hover {
+  10% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  20% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  30% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  40% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  50% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  60% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  70% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  80% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  90% {
+    -webkit-transform: translateX(1px) rotate(0);
+    transform: translateX(1px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateX(-1px) rotate(0);
+    transform: translateX(-1px) rotate(0);
+  }
+}
+.buzz-out-on-hover {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.buzz-out-on-hover:hover, .buzz-out-on-hover:focus, .buzz-out-on-hover:active {
+  -webkit-animation-name: buzz-out-on-hover;
+  animation-name: buzz-out-on-hover;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+/* Fin Botón Zumbido extraído de: https://codepen.io/techshiva/pen/JVbKLM */
+
+
+#iform {
+    text-align: center;
+    position: relative;
+    margin-top: 20px
+}
+
+#iform fieldset {
+    background: #292b2c;
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+    position: relative
+}
+
+.form-card {
+    text-align: left
+}
+
+#iform fieldset:not(:first-of-type) {
+    display: none;
+}
+
+#iform input,
+#iform select,
+#iform textarea {
+   -webkit-appearance:none !important;
+	border:none;
+	border-bottom: 1px solid #292b2c;
+    padding: 8px 15px 8px 15px;																	
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 95%;
+    box-sizing: border-box;
+    font-family: default;
+    background-color: #616161;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #FFF;
+}
+
+#iform input:focus,
+#iform textarea:focus {
+        color: #FFF;
+}
+
+#iform .action-button {
+    width: 100px;
+    font-weight: bold;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 0px 10px 5px;
+    float: right
+}
+
+#iform .action-button:hover,
+#iform .action-button:focus {
+    background-color: #000
+}
+
+#iform .action-button-previous {
+    width: 100px;
+    background: #616161;
+    font-weight: bold;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px 10px 0px;
+    float: right
+}
+
+#iform .action-button-previous:hover,
+#iform .action-button-previous:focus {
+    background-color: #000
+}
+
+.card {
+    z-index: 0;
+    border: none;
+    position: relative;
+    margin:0
+}
+
+.fp-titulo {
+    font-size: 25px;
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.pasos {
+    font-size: 25px;
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-weight: normal;
+    text-align: right
+}
+
+#barraprogreso {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: #000
+}
+
+#barraprogreso .active {
+    color: #000
+}
+
+#barraprogreso li {
+    list-style-type: none;
+    font-size: 12px;
+    width: 24%;
+    float: left;
+    position: relative;
+    font-weight: 400
+}
+
+#barraprogreso #prop_sistematica:before {
+    font-family: FontAwesome;
+    content: "\f2b0";
+	color:white;
+}
+
+
+#barraprogreso #prop_fisica:before {
+    font-family: FontAwesome;
+    content: "\f0a3";
+	color:white;
+}
+
+#barraprogreso #prop_optica:before {
+    font-family: FontAwesome;
+    content: "\f06e";
+	color:white;
+}
+
+#barraprogreso #prop_cristal:before {
+    font-family: FontAwesome;
+    content: "\f2dc";
+	color:white;
+}
+
+#barraprogreso #prop_fotos:before {
+    font-family: FontAwesome;
+    content: "\f030";
+	color:white;
+}
+
+#barraprogreso #prop_fin:before {
+    font-family: FontAwesome;
+    content: "\f00c";
+	color:white;
+}
+
+#barraprogreso #notas:before {
+    font-family: FontAwesome;
+    content: "\f249";
+	color:white;
+}
+
+#barraprogreso #localizacion:before {
+    font-family: FontAwesome;
+    content: "\f124";
+	color:white;
+	}
+
+#barraprogreso li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
+    background: #616161;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+}
+
+#barraprogreso li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+}
+
+#barraprogreso li.active:before,
+#barraprogreso li.active:after {
+    background: dodgerBlue
+}
+
+.progress {
+    height: 20px
+}
+
+.progress-bar {
+    background-color: dodgerBlue
+}
+
+
+#error, #correcto {
+	display:none;
+}
+
+
+.jug_display {
+	font-size:18px;
+    background-color: #0275d8;
+    border-top-left-radius: 110px;
+    border-top-right-radius: 110px;
+    border: 5px solid #f8f9fa;
+    font-weight: bold;
+    border-bottom: 0;
+}
+
+.resize {
+	font-size:28px;   
+}
+
+
+
+.tiempo {
+
+    background-color: #0275d8;
+    border-top-left-radius: 110px;
+    border-top-right-radius: 110px;
+    border-bottom-left-radius: 110px;
+    border-bottom-right-radius: 110px;
+    border: 10px solid #f8f9fa;
+    border-bottom: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .jug_display {
+  font-size:18px;
+    background-color: #0275d8;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border: 1px solid #f8f9fa;
+    border-bottom: 0;
+
+  }
+  
+.resize {
+	font-size:18px;   
+}  
+.imagenes {
+	width:30px;
+	height:30px;   
+}  
+
+}
+
+
